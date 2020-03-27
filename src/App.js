@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 function App() {
+
+  const st = {
+    textDecoration: "none"
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="nav_bar">
+      <Link to='/' style={st}>
+        <span>KeidaKira</span>
+      </Link>
+      <Link to='/login' style={st}>
+        <li>Login</li>
+      </Link>
+      <Link to='/signup' style={st}>
+        <li>Signup</li>
+      </Link>
     </div>
   );
 }
