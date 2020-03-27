@@ -14,11 +14,13 @@ mongoose
 const port = process.env.PORT || 5000;
 
 const login_page = require("./routes/login");
+const signup_page = require("./routes/signup");
 
 app.use(cors());
 app.use(express.json());
 
 app.use("/login", login_page);
+app.use("/signup", signup_page);
 
 app.get("/", (req, res) => {
     res.send("Hello, World!");
