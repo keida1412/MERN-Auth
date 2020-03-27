@@ -1,44 +1,42 @@
 {
   "name": "auth-model",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "A small login and signup MERN project",
+  "main": "index.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "acorn": "^7.1.1",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.6",
-    "nodemon": "^2.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
     "uuid": "^7.0.2"
   },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+    "client-install": "npm install --prefix client",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keidakira/MERN-Auth.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "keywords": [
+    "MERN",
+    "Auth",
+    "Keida",
+    "Kira",
+    "KeidaKira"
+  ],
+  "author": "KeidaKira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keidakira/MERN-Auth/issues"
+  },
+  "homepage": "https://github.com/keidakira/MERN-Auth#readme"
 }
