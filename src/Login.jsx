@@ -1,6 +1,7 @@
 import React from 'react';
 import App from './App'
 import { Component } from 'react';
+import Axios from 'axios';
 
 class Login extends Component {
 
@@ -8,7 +9,8 @@ class Login extends Component {
         super();
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            error: ""
         };
     }
 
@@ -23,7 +25,33 @@ class Login extends Component {
     }
 
     checkS = (e) => {
+        document.getElementById('login_btn').style.cursor = 'not-allowed';
         e.preventDefault();
+        this.setState({ error: "" });
+        const user  = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        if(user.username === "" || user.password === "") {
+            this.setState({ error: "Invalid Details" });
+            document.getElementById('login_btn').style.cursor = 'pointer';
+            return;
+        }
+        Axios.post("http://localhost:5000/login/", user)
+        .then(res => {
+            if(res.data === true) {
+                document.getElementById('login_btn').style.cursor = 'pointer';
+                alert("Successful login");
+            }   
+            else {
+                this.setState({ error: "Invalid credentials" });
+            }
+        })
+        .catch(err => {
+            this.setState({ error: "An error occurred!" });
+            console.log(err);
+            document.getElementById('login_btn').style.cursor = 'pointer';
+        });
     }
 
     render() {
@@ -38,7 +66,8 @@ class Login extends Component {
                         <input type="password" onChange = {this.handlePassword} placeholder="Password" />
                     </div>
                     <div style={{width: "258px"}}>
-                        <button>Login</button>
+                        <small style={{color: "red", fontSize: "12px"}}>{this.state.error}</small><br />
+                        <button id='login_btn'>Login</button>
                     </div>
                 </form>
             </React.Fragment>
