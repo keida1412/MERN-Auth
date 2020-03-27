@@ -2,7 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 
-function App() {
+function App(props) {
+
+  const active = props.active;
+  
+  let lg = "", sp = "";
+  if(active === "login") {
+    lg = "active";
+  }
+  if(active === "signup") {
+    sp = "active";
+  }
 
   const st = {
     textDecoration: "none"
@@ -14,13 +24,14 @@ function App() {
         <span>KeidaKira</span>
       </Link>
       <Link to='/login' style={st}>
-        <li>Login</li>
+        <li className={lg}>Login</li>
       </Link>
       <Link to='/signup' style={st}>
-        <li>Signup</li>
+        <li className={sp}>Signup</li>
       </Link>
     </div>
   );
+
 }
 
 export default App;
