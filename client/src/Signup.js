@@ -50,7 +50,7 @@ class Signup extends Component {
                 username: this.state.username,
                 password: this.state.password
             }
-            Axios.post("http://localhost:5000/signup", user)
+            Axios.post("https://backend-keidakira.herokuapp.com/signup", user)
             .then(res => {
                 if(res.data.success === 1) {
                     alert("User created!");

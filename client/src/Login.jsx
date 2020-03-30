@@ -37,7 +37,7 @@ class Login extends Component {
             document.getElementById('login_btn').style.cursor = 'pointer';
             return;
         }
-        Axios.post("http://localhost:5000/login/", user)
+        Axios.post("https://backend-keidakira.herokuapp.com/login/", user)
         .then(res => {
             if(res.data === true) {
                 document.getElementById('login_btn').style.cursor = 'pointer';

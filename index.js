@@ -20,8 +20,8 @@ const signup_page = require("./routes/signup");
 app.use(cors());
 app.use(express.json());
 
-app.use("/login_", login_page);
-app.use("/signup_", signup_page);
+app.use("/login", login_page);
+app.use("/signup", signup_page);
 
 app.get("/", (req, res) => {
     res.send("Hello, World!");
@@ -37,4 +37,4 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => console.log(__dirname+`listening on port ${port}`));
+app.listen(port, () => console.log(`listening on port ${port}`));
