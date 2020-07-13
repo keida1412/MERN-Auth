@@ -27,7 +27,7 @@ function App(props) {
         <li className={lg}>Login</li>
       </Link>
       <Link to='/signup' style={st}>
-        <li className={sp}>Signup</li>
+        <li className={sp}>Sign up</li>
       </Link>
     </div>
   );
